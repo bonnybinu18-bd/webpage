@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student Registration</title>
+<style>
+  :root { --ink:#1d2b3a; --paper:#f3f6f9; --card:#ffffff; --accent:#1f5f8b; --line:#c9d4de; }
+  * { box-sizing: border-box; }
+  body { margin:0; min-height:100vh; display:grid; place-items:center; padding:1.5rem;
+         background:var(--paper); color:var(--ink); font-family:Georgia, "Times New Roman", serif; }
+  form { width:100%; max-width:26rem; background:var(--card); padding:2rem;
+         border:1px solid var(--line); border-radius:6px; }
+  h1 { margin:0 0 .25rem; font-size:1.6rem; }
+  p.sub { margin:0 0 1.5rem; color:#51667a; font-size:.95rem; }
+  label { display:block; margin-bottom:1rem; font-size:.95rem; }
+  input, select { display:block; width:100%; margin-top:.35rem; padding:.6rem .7rem;
+                  font:inherit; border:1px solid var(--line); border-radius:4px; background:#fff; }
+  input:focus, select:focus, button:focus-visible { outline:2px solid var(--accent); outline-offset:1px; }
+  button { width:100%; padding:.75rem; font:inherit; font-weight:bold; color:#fff;
+           background:var(--accent); border:0; border-radius:4px; cursor:pointer; }
+  button:hover { background:#174a6c; }
+</style>
+</head>
+<body>
+  <form action="StudentServlet" method="post">
+    <h1>Student registration</h1>
+    <p class="sub">Enter your details to register.</p>
+
+    <label>Name
+      <input type="text" name="name" required>
+    </label>
+    <label>Register number
+      <input type="text" name="regNo" required pattern="[A-Za-z0-9]+" title="Letters and digits only">
+    </label>
+    <label>Department
+      <select name="department" required>
+        <option value="">Select department</option>
+        <option>Computer Science</option>
+        <option>Information Technology</option>
+        <option>Electronics</option>
+        <option>Mechanical</option>
+        <option>Civil</option>
+      </select>
+    </label>
+    <label>Email
+      <input type="email" name="email" required>
+    </label>
+
+    <button id="submit" type="submit">Register student</button>
+  </form>
+  <script>
+    var submit = document.getElementById("submit")
+    submit.addEventListener("click",function(){
+      alert("successfully submitted...!")
+    })
+  </script>
+</body>
+</html>
